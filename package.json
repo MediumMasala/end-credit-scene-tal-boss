@@ -1,0 +1,26 @@
+{
+  "name": "bosses-on-tal",
+  "version": "1.0.0",
+  "description": "BOSSES ON TAL — end-credit slate (Remotion, 1080x1350 + 1080x1920)",
+  "private": true,
+  "scripts": {
+    "dev": "remotion studio",
+    "render": "remotion render BossesOnTal out/bosses-on-tal.mp4 --codec=h264",
+    "render-story": "remotion render BossesOnTal-Story out/bosses-on-tal-story.mp4 --codec=h264",
+    "upgrade": "remotion upgrade"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.469",
+    "@remotion/fonts": "^4.0.499",
+    "@remotion/motion-blur": "^4.0.520",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "remotion": "^4.0.469"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "@types/web": "^0.0.349",
+    "typescript": "^6.0.3"
+  }
+}
