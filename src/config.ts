@@ -66,7 +66,9 @@ export const CFG = {
   companyColWidth: 379,
   columnGutter: 50,
   rowSpacing: 120, // vertical rhythm between rows
-  crawlPxPerFrame: 7, // constant velocity — never scales with row count
+  // 20/3 on the 30fps clock = exactly 8px per 25fps frame — integer steps kill
+  // the subpixel shimmer in 25fps GIFs (CreditCrawl snaps y to whole px there)
+  crawlPxPerFrame: 20 / 3,
   rowJitter: 0, // ±px per row — off, rows ride the crawl dead-steady
   // Rows are fully invisible above topMaskStart (below the title block) and
   // fully visible from topMaskEnd — they never overlap the headline glyphs.

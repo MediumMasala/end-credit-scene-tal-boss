@@ -22,12 +22,15 @@ export const CreditCrawl: React.FC = () => {
   const duration = crawlFrames(height, rows);
 
   // Linear crawl that STOPS with the CTA parked in frame (the clamp holds it)
-  const y = interpolate(
+  const rawY = interpolate(
     vf,
     [CFG.crawlStart, CFG.crawlStart + duration],
     [height, crawlStopY(height, rows)],
     { easing: Easing.linear, extrapolateLeft: "clamp", extrapolateRight: "clamp" }
   );
+  // Low-fps GIF comps: whole-pixel steps, or the antialiasing lands differently
+  // every frame and the crawl shimmers. High-fps comps keep subpixel motion.
+  const y = fps <= 30 ? Math.round(rawY) : rawY;
 
   const mask = `linear-gradient(to bottom,
     rgba(0,0,0,0) 0px,
