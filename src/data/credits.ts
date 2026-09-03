@@ -10,7 +10,7 @@ export const CREDITS = [
   { company: "MULTIPLIER", role: "DIRECTOR OF ENGINEERING" },
   { company: "SCAPIA", role: "ENGINEERING MANAGER" },
   { company: "PRONTO", role: "HEAD OF ENGINEERING" },
-  { company: "NURTURE FARM", role: "SENIOR ENGINEERING MANAGER" },
+  { company: "GOOGLE", role: "ENGINEERING MANAGER" },
   { company: "SHARECHAT", role: "ENGINEERING MANAGER" },
   { company: "PHONEPE", role: "HEAD OF ENGINEERING" },
   { company: "AMAZON", role: "VP OF ENGINEERING" },
