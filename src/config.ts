@@ -66,9 +66,9 @@ export const CFG = {
   companyColWidth: 379,
   columnGutter: 50,
   rowSpacing: 120, // vertical rhythm between rows
-  // 20/3 on the 30fps clock = exactly 8px per 25fps frame — integer steps kill
-  // the subpixel shimmer in 25fps GIFs (CreditCrawl snaps y to whole px there)
-  crawlPxPerFrame: 20 / 3,
+  // Integer px per GIF frame kills subpixel shimmer (CreditCrawl snaps y to
+  // whole px when fps ≤ 30). 7 = exact steps at 30fps; use 20/3 for 25fps GIFs.
+  crawlPxPerFrame: 7,
   rowJitter: 0, // ±px per row — off, rows ride the crawl dead-steady
   // Rows are fully invisible above topMaskStart (below the title block) and
   // fully visible from topMaskEnd — they never overlap the headline glyphs.
@@ -98,7 +98,7 @@ export const CFG = {
   wordmarkWidth: 380,
   endCardGap: 200, // space between the last credit row and the CTA block
   endCardLift: 200, // px the parked CTA sits above the default midpoint
-  moreLineText: "& 1,400 more engineering\nand product leaders on",
+  moreLineText: "& 1,500 more engineering\nand product leaders on",
   moreLineSize: 48,
   moreLineGap: 70, // space between the lead-in line and the wordmark
   badgeHeight: 104,

@@ -58,6 +58,15 @@ export const RemotionRoot: React.FC = () => {
         calculateMetadata={metadataFor(1350, 25)}
       />
       <Composition
+        id="BossesOnTal-30-Blur"
+        component={BossesOnTalBlur}
+        width={1080}
+        height={1350}
+        fps={30}
+        durationInFrames={totalFrames(1350, CREDITS.length, 30)}
+        calculateMetadata={metadataFor(1350, 30)}
+      />
+      <Composition
         id="BossesOnTal-25-Blur"
         component={BossesOnTalBlur}
         width={1080}
