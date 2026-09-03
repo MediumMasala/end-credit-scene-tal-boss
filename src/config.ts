@@ -88,7 +88,7 @@ export const CFG = {
   wordmarkWidth: 380,
   endCardGap: 200, // space between the last credit row and the CTA block
   endCardLift: 200, // px the parked CTA sits above the default midpoint
-  moreLineText: "& 1,400 MORE BOSSES ON",
+  moreLineText: "& 1,400 MORE ENGINEERING\nAND PRODUCT LEADERS ON",
   moreLineSize: 54,
   moreLineGap: 70, // space between the lead-in line and the wordmark
   badgeHeight: 104,

@@ -58,6 +58,8 @@ export const EndCard: React.FC = () => {
           color: CREAM,
           letterSpacing: "0.06em",
           marginBottom: CFG.moreLineGap,
+          whiteSpace: "pre-line",
+          textAlign: "center",
         }}
       >
         {CFG.moreLineText}
