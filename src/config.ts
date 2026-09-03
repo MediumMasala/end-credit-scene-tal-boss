@@ -4,23 +4,30 @@ import { loadFont } from "@remotion/fonts";
 // ---------------------------------------------------------------------------
 // Brand tokens
 // ---------------------------------------------------------------------------
-export const BG = "#000000";
-export const CREAM = "#F9F5E3";
-export const CREAM_DIM = "rgba(249,245,227,0.82)";
+export const BG = "linear-gradient(to bottom, #0B0B0D, #121214)";
+export const CREAM = "#FCF9DF";
+export const CREAM_DIM = "rgba(252,249,223,0.82)";
+export const WHITE = "#FFFFFF";
 
 // ---------------------------------------------------------------------------
-// Fonts — two slots, both local files. No Google Fonts, no system fallback.
+// Fonts — all local files. No Google Fonts, no system fallback.
 // ---------------------------------------------------------------------------
-export const TITLE_FONT = "ObviouslyWideBold";
-export const CREDIT_FONT = "ObviouslyNarrowBold";
+export const TITLE_FONT = "ObviouslyBold";
+export const CREDIT_FONT = "ObviouslyNarrowBold"; // end card lead-in line
+export const COMPANY_FONT = "SFProHeavy";
+export const ROLE_FONT = "SFProSemibold";
 
-const TITLE_FONT_FILE = "fonts/ObviouslyDemo-WideBold.otf";
+const TITLE_FONT_FILE = "fonts/ObviouslyDemo-Bold.otf";
 const CREDIT_FONT_FILE = "fonts/ObviouslyDemo-NarrowBold.otf";
+const COMPANY_FONT_FILE = "fonts/SF-Pro-Display-Heavy.otf";
+const ROLE_FONT_FILE = "fonts/SF-Pro-Display-Semibold.otf";
 
-const fontsReady = delayRender("loading Obviously fonts");
+const fontsReady = delayRender("loading fonts");
 Promise.all([
   loadFont({ family: TITLE_FONT, url: staticFile(TITLE_FONT_FILE) }),
   loadFont({ family: CREDIT_FONT, url: staticFile(CREDIT_FONT_FILE) }),
+  loadFont({ family: COMPANY_FONT, url: staticFile(COMPANY_FONT_FILE) }),
+  loadFont({ family: ROLE_FONT, url: staticFile(ROLE_FONT_FILE) }),
 ])
   .then(() => continueRender(fontsReady))
   .catch((err) => {
@@ -39,12 +46,12 @@ export const CFG = {
   crawlStart: 12, // credits enter from below (title is locked from frame 0)
   endHoldFrames: 75, // hold on the CTA after the crawl stops (2.5s)
 
-  // -- title --
-  titleSize: 144,
-  titleLineHeight: 1.0,
-  titleTopPadding: 36,
-  titleSidePadding: 44,
-  titleWordGap: 46, // width of EACH of the two spaces in "ON  TAL"
+  // -- title (Figma 3383:31578 — centered, mixed case) --
+  titleLines: ["Bosses hiring", "on Tal Boss!"],
+  titleSize: 104,
+  titleLineHeightPx: 120,
+  titleTopPadding: 16,
+  titleSidePadding: 24,
 
   // -- title jitter — OFF (read as jittery against the smooth 60fps crawl) --
   jitterTick: 4, // refresh every N frames
@@ -53,17 +60,18 @@ export const CFG = {
   titleRotDeg: 0, // ± block rotation
   titleRotPeriod: 120, // frames per full sine cycle
 
-  // -- credit crawl --
-  companySize: 86,
+  // -- credit crawl (Figma: company SF Heavy 56 right in fixed col, role SF Semibold 40 left) --
+  companySize: 56,
   roleSize: 40,
-  columnGutter: 56,
+  companyColWidth: 379,
+  columnGutter: 50,
   rowSpacing: 120, // vertical rhythm between rows
-  crawlPxPerFrame: 10, // constant velocity — never scales with row count
+  crawlPxPerFrame: 7, // constant velocity — never scales with row count
   rowJitter: 0, // ±px per row — off, rows ride the crawl dead-steady
   // Rows are fully invisible above topMaskStart (below the title block) and
   // fully visible from topMaskEnd — they never overlap the headline glyphs.
-  topMaskStart: 370,
-  topMaskEnd: 560,
+  topMaskStart: 290,
+  topMaskEnd: 470,
   bottomMaskPx: 120, // rows materialise at the bottom edge
 
   // -- film stock --
@@ -88,8 +96,8 @@ export const CFG = {
   wordmarkWidth: 380,
   endCardGap: 200, // space between the last credit row and the CTA block
   endCardLift: 200, // px the parked CTA sits above the default midpoint
-  moreLineText: "& 1,400 MORE ENGINEERING\nAND PRODUCT LEADERS ON",
-  moreLineSize: 54,
+  moreLineText: "& 1,400 more engineering\nand product leaders on",
+  moreLineSize: 48,
   moreLineGap: 70, // space between the lead-in line and the wordmark
   badgeHeight: 104,
   badgeIconSize: 52,

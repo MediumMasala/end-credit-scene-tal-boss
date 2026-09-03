@@ -2,9 +2,9 @@ import React from "react";
 import { Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 import {
   CFG,
-  CREAM,
-  CREAM_DIM,
-  CREDIT_FONT,
+  COMPANY_FONT,
+  ROLE_FONT,
+  WHITE,
   contentHeight,
   crawlFrames,
   crawlStopY,
@@ -60,16 +60,17 @@ export const CreditCrawl: React.FC = () => {
                 display: "flex",
                 alignItems: "baseline",
                 transform: `translate(${jx}px, ${jy}px)`,
-                fontFamily: CREDIT_FONT,
                 textTransform: "uppercase",
               }}
             >
               <div
                 style={{
-                  flex: 1,
+                  width: CFG.companyColWidth,
+                  flexShrink: 0,
                   textAlign: "right",
+                  fontFamily: COMPANY_FONT,
                   fontSize: CFG.companySize,
-                  color: CREAM,
+                  color: WHITE,
                   lineHeight: `${CFG.rowSpacing}px`,
                   whiteSpace: "nowrap",
                   // long names overflow to the LEFT so the centre axis never shifts
@@ -79,13 +80,14 @@ export const CreditCrawl: React.FC = () => {
               >
                 {row.company}
               </div>
-              <div style={{ width: CFG.columnGutter }} />
+              <div style={{ width: CFG.columnGutter, flexShrink: 0 }} />
               <div
                 style={{
                   flex: 1,
                   textAlign: "left",
+                  fontFamily: ROLE_FONT,
                   fontSize: CFG.roleSize,
-                  color: CREAM_DIM,
+                  color: WHITE,
                   whiteSpace: "nowrap",
                   minWidth: 0,
                 }}

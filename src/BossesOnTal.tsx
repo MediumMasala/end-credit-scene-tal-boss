@@ -7,7 +7,7 @@ import { FilmStock } from "./components/FilmStock";
 
 export const BossesOnTal: React.FC = () => {
   return (
-    <AbsoluteFill style={{ backgroundColor: BG }}>
+    <AbsoluteFill style={{ background: BG }}>
       <FilmStock>
         {/* End card rides at the tail of the crawl and parks in place */}
         <CreditCrawl />

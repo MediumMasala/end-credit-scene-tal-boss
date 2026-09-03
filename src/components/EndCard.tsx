@@ -1,6 +1,6 @@
 import React from "react";
 import { staticFile } from "remotion";
-import { CFG, CREAM, CREDIT_FONT } from "../config";
+import { CFG, CREAM, CREDIT_FONT, TITLE_FONT } from "../config";
 
 // FontAwesome brand glyphs (CC BY 4.0) — drawn in cream to keep the palette
 const APPLE_PATH =
@@ -52,9 +52,9 @@ export const EndCard: React.FC = () => {
     >
       <div
         style={{
-          fontFamily: CREDIT_FONT,
+          fontFamily: TITLE_FONT,
           fontSize: CFG.moreLineSize,
-          lineHeight: 1.2,
+          lineHeight: 1.25,
           color: CREAM,
           letterSpacing: "0.06em",
           marginBottom: CFG.moreLineGap,
